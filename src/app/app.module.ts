@@ -7,9 +7,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatStepperModule} from '@angular/material/stepper'
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
+import { CheckPipe } from './pipes/check.pipe';
+import { ResultadoComponent } from './components/resultado/resultado.component';
+import { RouterModule } from '@angular/router';
+
+const router = RouterModule.forChild([
+  {path: 'resultado', component: ResultadoComponent}
+])
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CheckPipe,
+    ResultadoComponent
   ],
   imports: [
     BrowserModule,
@@ -17,7 +26,8 @@ import {MatButtonModule} from '@angular/material/button';
     BrowserAnimationsModule,
     MatStepperModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
+    router
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,8 @@
+.preguntas{
+    overflow-y: scroll;
+}
+.respuesta{
+    width: 600px;
+    height: 400px;
+    margin-top: 80px;
+}

@@ -8,19 +8,30 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'proyecto';
+  public questionMode:boolean = true;
+  prediccion: any;
+  service: any;
   constructor() {}
-  respuestas: number[] = [];
+  // 
+  public respuestas: number[] = [];
  
   prueba:number=1
   agregarSI(){
-    this.prueba = this.respuestas.push(1);
-    console.log(this.respuestas)
+    this.respuestas.push(1);
+    this.validar();
   }
   agregarNO(){
-    this.prueba = this.respuestas.push(0);
-    console.log(this.respuestas)
+    this.respuestas.push(0);
+    this.validar();
   }
-
+  validar(){
+    if(this.respuestas.length === 9){
+      this.questionMode=false;
+    }
+  }
+  async consultar(){
+    this.prediccion = await this.service.consultar(this.respuestas)
+  }
  
 
   
